@@ -25,7 +25,7 @@ class TestService {
         $("[data-test-id='login'] input").setValue(registeredUser.getLogin());
         $("[data-test-id='password'] input").setValue(registeredUser.getPassword());
         $("button.button").click();
-        $(".App_appContainer__3jRx1")
+        $("h2")
                 .shouldHave(Condition.exactText("  Личный кабинет"))
                 .shouldBe(Condition.visible);
     }
