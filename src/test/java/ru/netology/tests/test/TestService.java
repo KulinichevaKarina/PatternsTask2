@@ -20,7 +20,7 @@ class TestService {
 
     @Test
     @DisplayName("Should successfully login with active registered user")
-    void shouldSuccessfulLoginIfRegisteredActiveUser() throws InterruptedException {
+    void shouldSuccessfulLoginIfRegisteredActiveUser() {
         var registeredUser = getRegisteredUser("active");
         $("[data-test-id='login'] input").setValue(registeredUser.getLogin());
         $("[data-test-id='password'] input").setValue(registeredUser.getPassword());
@@ -32,7 +32,7 @@ class TestService {
 
     @Test
     @DisplayName("Should get error message if login with not registered user")
-    void shouldGetErrorIfNotRegisteredUser() throws InterruptedException {
+    void shouldGetErrorIfNotRegisteredUser() {
         var notRegisteredUser = getUser("active");
         $("[data-test-id='login'] input").setValue(notRegisteredUser.getLogin());
         $("[data-test-id='password'] input").setValue(notRegisteredUser.getPassword());
@@ -44,7 +44,7 @@ class TestService {
 
     @Test
     @DisplayName("Should get error message if login with blocked registered user")
-    void shouldGetErrorIfBlockedUser() throws InterruptedException {
+    void shouldGetErrorIfBlockedUser() {
         var blockedUser = getRegisteredUser("blocked");
         $("[data-test-id='login'] input").setValue(blockedUser.getLogin());
         $("[data-test-id='password'] input").setValue(blockedUser.getPassword());
@@ -52,12 +52,11 @@ class TestService {
         $("[data-test-id='error-notification'] .notification__content")
                 .shouldHave(Condition.exactText("Ошибка! Пользователь заблокирован"))
                 .shouldBe(Condition.visible);
-        Thread.sleep(5000);
     }
 
     @Test
     @DisplayName("Should get error message if login with wrong login")
-    void shouldGetErrorIfWrongLogin() throws InterruptedException {
+    void shouldGetErrorIfWrongLogin() {
         var registeredUser = getRegisteredUser("active");
         var wrongLogin = getRandomLogin();
         $("[data-test-id='login'] input").setValue(wrongLogin);
@@ -70,7 +69,7 @@ class TestService {
 
     @Test
     @DisplayName("Should get error message if login with wrong password")
-    void shouldGetErrorIfWrongPassword() throws InterruptedException {
+    void shouldGetErrorIfWrongPassword() {
         var registeredUser = getRegisteredUser("active");
         var wrongPassword = getRandomPassword();
         $("[data-test-id='login'] input").setValue(registeredUser.getLogin());
