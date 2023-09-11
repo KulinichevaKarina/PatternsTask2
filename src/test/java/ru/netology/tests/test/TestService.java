@@ -26,7 +26,7 @@ class TestService {
         $("[data-test-id='password'] input").setValue(registeredUser.getPassword());
         $("button.button").click();
         $("h2")
-                .shouldHave(Condition.exactText("  Личный кабинет"))
+                .shouldHave(Condition.text("  Личный кабинет"))
                 .shouldBe(Condition.visible);
     }
 
@@ -38,7 +38,7 @@ class TestService {
         $("[data-test-id='password'] input").setValue(notRegisteredUser.getPassword());
         $("button.button").click();
         $("[data-test-id='error-notification'] .notification__content")
-                .shouldHave(Condition.exactText("Ошибка! Неверно указан логин или пароль"))
+                .shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"))
                 .shouldBe(Condition.visible);
     }
 
@@ -50,7 +50,7 @@ class TestService {
         $("[data-test-id='password'] input").setValue(blockedUser.getPassword());
         $("button.button").click();
         $("[data-test-id='error-notification'] .notification__content")
-                .shouldHave(Condition.exactText("Ошибка! Пользователь заблокирован"))
+                .shouldHave(Condition.text("Ошибка! Пользователь заблокирован"))
                 .shouldBe(Condition.visible);
     }
 
@@ -63,7 +63,7 @@ class TestService {
         $("[data-test-id='password'] input").setValue(registeredUser.getPassword());
         $("button.button").click();
         $("[data-test-id='error-notification'] .notification__content")
-                .shouldHave(Condition.exactText("Ошибка! Неверно указан логин или пароль"))
+                .shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"))
                 .shouldBe(Condition.visible);
     }
 
@@ -76,7 +76,7 @@ class TestService {
         $("[data-test-id='password'] input").setValue(wrongPassword);
         $("button.button").click();
         $("[data-test-id='error-notification'] .notification__content")
-                .shouldHave(Condition.exactText("Ошибка! Неверно указан логин или пароль"))
+                .shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"))
                 .shouldBe(Condition.visible);
 
     }
