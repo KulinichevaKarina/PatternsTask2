@@ -2,6 +2,7 @@ package ru.netology.tests.test;
 
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -13,8 +14,8 @@ import static ru.netology.tests.data.DataGenerator.getRandomLogin;
 import static ru.netology.tests.data.DataGenerator.getRandomPassword;
 
 class TestService {
-    @BeforeAll
-    static void setup() {
+    @BeforeEach
+    void setUpEach() {
         open("http://localhost:9999");
     }
 
